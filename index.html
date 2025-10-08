@@ -1,14 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathys Johannes Van Heerden - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="fade-in">
+            <h1>Mathys Johannes Van Heerden (T.J.)</h1>
+            <p class="tagline">Computing Professional | Software Developer | Problem Solver</p>
+            <p class="intro">International background with experience spanning three continents, specializing in software development, database management, and enterprise solutions.</p>
+            <p class="contact">tj.vanheerden717@gmail.com | +27 81 459 7608</p>
+            <a href="#experience" class="cta-button">View Experience</a>
+            <a href="assets/cv.pdf" class="cta-button" target="_blank">View CV</a>
+        </section>
+
+        <section id="about" class="fade-in">
+            <h2>About Me</h2>
+            <div class="about-container">
+                <img src="assets/Portfolio_Photo.jpg" alt="Mathys Johannes Van Heerden" class="profile-photo">
+                <div class="about-text">
+                    <p>Multilingual professional (English, Afrikaans, Spanish) with an international education background from schools in India, including the American Embassy School and the British International School, where I graduated from the IB Programme. I am currently completing my Bachelor of Computing at Belgium Campus ITversity.</p>
+                    <p>My experience is diverse, ranging from telecommunications and robotics to enterprise software. I am also community-minded, having taught English to children in rural New Delhi and organized NGO sports events.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="fade-in">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>EPI-USE - Intern</h3>
+                    <p>Jan 2025 - Dec 2025</p>
+                    <p>Gaining experience in enterprise software solutions.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Robotic System Solutions - Junior Robotic Programmer</h3>
+                    <p>Jan 2022 - Dec 2024</p>
+                    <p>Automation and robotics programming.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Platinum Life - Data Capturer</h3>
+                    <p>Feb 2021 - Dec 2021</p>
+                    <p>Data management and analysis.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>British Telecommunications - Telecommunications Intern</h3>
+                    <p>2017</p>
+                    <p>New Delhi, India</p>
+                </div>
+            </div>
+            <blockquote>
+                <p>"Mathys consistently demonstrated professionalism, dedication, and a strong aptitude for learning and applying new concepts."</p>
+                <cite>- Dirk Naude, Associate Manager at EPI-USE</cite>
+            </blockquote>
+        </section>
+
+        <section id="skills" class="fade-in">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Web</h3>
+                    <div class="skill"><p>JavaScript / Node.js</p><div class="progress-bar" data-progress="90"></div></div>
+                    <div class="skill"><p>HTML5 & CSS</p><div class="progress-bar" data-progress="95"></div></div>
+                    <div class="skill"><p>C#</p><div class="progress-bar" data-progress="85"></div></div>
+                    <div class="skill"><p>Java</p><div class="progress-bar" data-progress="80"></div></div>
+                    <div class="skill"><p>Machine Learning</p><div class="progress-bar" data-progress="80"></div></div>
+                </div>
+                <div class="skill-category">
+                    <h3>Robotics & Automation</h3>
+                    <div class="skill"><p>Kawasaki Robotics & RPA</p><div class="progress-bar" data-progress="90"></div></div>
+                    <div class="skill"><p>SCA Sealer Applications</p><div class="progress-bar" data-progress="85"></div></div>
+                    <div class="skill"><p>Coherix Predator3D</p><div class="progress-bar" data-progress="80"></div></div>
+                </div>
+                <div class="skill-category">
+                    <h3>Enterprise & SAP</h3>
+                    <div class="skill"><p>SAP Fiori</p><div class="progress-bar" data-progress="85"></div></div>
+                    <div class="skill"><p>SAP CPI</p><div class="progress-bar" data-progress="80"></div></div>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases & General</h3>
+                    <div class="skill"><p>MySQL</p><div class="progress-bar" data-progress="85"></div></div>
+                    <div class="skill"><p>Computing Principles</p><div class="progress-bar" data-progress="95"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="fade-in">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Belgium Campus ITversity - Bachelor of Computing</h3>
+                    <p>2019-Present</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>The British International School, New Delhi - International Baccalaureate Programme</h3>
+                    <p>2016-2018</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>American Embassy School, New Delhi - Grade 10-11</h3>
+                    <p>2014-2016</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Die Hoërskool Wonderboom</h3>
+                    <p>2012-2014</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="international-experience" class="fade-in">
+            <h2>International Experience</h2>
+            <ul>
+                <li>Lived and studied in India</li>
+                <li>Played baseball in Dubai and Abu Dhabi</li>
+                <li>Volunteer work teaching English in New Delhi</li>
+            </ul>
+        </section>
+
+        <section id="recommendation" class="fade-in">
+            <h2>Professional Recommendation</h2>
+            <blockquote>
+                <p>"Mathys consistently demonstrated professionalism, dedication, and a strong aptitude for learning and applying new concepts. He helped with contributions to projects and showed a solid understanding of technical principles. Mathys approached tasks with care and attention to detail, and his collaborative attitude made him a valued member of the team."</p>
+                <cite>- Dirk Naude, Associate Manager at EPI-USE</cite>
+            </blockquote>
+            <div class="center-button">
+                <a href="assets/EPI-USE_Reference_Letter.pdf" class="cta-button" target="_blank">View Reference Letter</a>
+            </div>
+        </section>
+    </main>
+
+    <a href="#hero" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <footer id="contact">
+        <div class="social-media">
+             <a href="https://www.linkedin.com/in/mathys-johannes-van-heerden-3b4993225" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>Johannesburg, Gauteng, South Africa</p>
+        <p>&copy; 2025 Mathys Johannes Van Heerden</p>
+    </footer>
+
+    <view-counter></view-counter>
+
+    <script src="firebase-config.js"></script>
+    <script src="view-counter.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
