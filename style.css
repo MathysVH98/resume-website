@@ -352,12 +352,12 @@ strong { font-weight: 700; }
 
 /* Reveal animations */
 .reveal {
-    opacity: 0; transform: translateY(32px);
+    opacity: 1; transform: translateY(0);
     transition: opacity .8s var(--ease), transform .8s var(--ease);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 .reveal-stagger {
-    opacity: 0; transform: translateY(28px);
+    opacity: 1; transform: translateY(0);
     transition: opacity .7s var(--ease), transform .7s var(--ease);
 }
 .reveal-stagger.visible { opacity: 1; transform: translateY(0); }
