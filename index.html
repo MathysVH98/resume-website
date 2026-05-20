@@ -3,159 +3,479 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathys Johannes Van Heerden - Portfolio</title>
+    <title>Mathys (TJ) Van Heerden — Full Stack Developer</title>
+    <meta name="description" content="Full Stack Developer and SAP Certified Integration Developer based in South Africa. React, TypeScript, Node.js, Supabase, SAP CPI.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 <body>
-    <header>
+
+    <!-- ===== NAVBAR ===== -->
+    <header id="navbar">
         <nav>
-            <ul>
+            <a href="#hero" class="nav-logo">TJ</a>
+            <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
             </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
     </header>
 
+    <!-- Mobile nav overlay -->
+    <div class="mobile-nav" id="mobile-nav">
+        <button class="mobile-close" id="mobile-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="#about" class="mobile-link">About</a></li>
+            <li><a href="#experience" class="mobile-link">Experience</a></li>
+            <li><a href="#skills" class="mobile-link">Skills</a></li>
+            <li><a href="#projects" class="mobile-link">Projects</a></li>
+            <li><a href="#certifications" class="mobile-link">Certifications</a></li>
+            <li><a href="#education" class="mobile-link">Education</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
+        </ul>
+    </div>
+
     <main>
-        <section id="hero" class="fade-in">
-            <h1>Mathys Johannes Van Heerden (T.J.)</h1>
-            <p class="tagline">Computing Professional | Software Developer | Problem Solver</p>
-            <p class="intro">International background with experience spanning three continents, specializing in software development, database management, and enterprise solutions.</p>
-            <p class="contact">tj.vanheerden717@gmail.com | +27 81 459 7608</p>
-            <a href="#experience" class="cta-button">View Experience</a>
-            <a href="assets/cv.pdf" class="cta-button" target="_blank">View CV</a>
+
+        <!-- ===== HERO ===== -->
+        <section id="hero">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-content" id="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Available for opportunities
+                </div>
+                <h1 class="hero-name">Mathys <span class="name-accent">(TJ)</span><br>Van Heerden</h1>
+                <div class="hero-typewriter">
+                    <span id="typewriter-text"></span><span class="tw-cursor">|</span>
+                </div>
+                <p class="hero-bio">Full Stack Developer &amp; SAP Certified Associate Integration Developer with 4+ years of cross-disciplinary experience spanning enterprise integration, industrial automation, and modern web delivery.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="4">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="100">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Robots Programmed</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="150">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Employees Served</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="9">0</span><span class="stat-plus"></span>
+                        <span class="stat-label">Distinctions</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#experience" class="btn btn-primary">View Experience</a>
+                    <a href="assets/cv.pdf" class="btn btn-ghost" target="_blank"><i class="fas fa-download"></i> Download CV</a>
+                </div>
+            </div>
+            <div class="scroll-hint">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
         </section>
 
-        <section id="about" class="fade-in">
-            <h2>About Me</h2>
-            <div class="about-container">
-                <img src="assets/Portfolio_Photo.jpg" alt="Mathys Johannes Van Heerden" class="profile-photo">
-                <div class="about-text">
-                    <p>Multilingual professional (English, Afrikaans, Spanish) with an international education background from schools in India, including the American Embassy School and the British International School, where I graduated from the IB Programme. I am currently completing my Bachelor of Computing at Belgium Campus ITversity.</p>
-                    <p>My experience is diverse, ranging from telecommunications and robotics to enterprise software. I am also community-minded, having taught English to children in rural New Delhi and organized NGO sports events.</p>
+        <!-- ===== ABOUT ===== -->
+        <section id="about" class="reveal">
+            <div class="section-label"><span class="section-num">01</span>About</div>
+            <h2 class="section-title">The person behind the code</h2>
+            <div class="about-grid">
+                <div class="about-photo-col">
+                    <div class="photo-wrap tilt-card">
+                        <img src="assets/Portfolio_Photo.jpg" alt="Mathys TJ Van Heerden">
+                        <div class="photo-glow"></div>
+                    </div>
+                    <div class="about-socials">
+                        <a href="https://www.linkedin.com/in/mathys-johannes-van-heerden-3b4993225" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/MathysVH98" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:tj.vanheerden717@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="about-text-col">
+                    <p class="about-lead">Full Stack Developer and SAP Certified Integration Developer, currently building production systems at Robotic System Solutions while completing a Bachelor of Computing (NQF Level 8) with 9 distinctions.</p>
+                    <p>My background spans three continents and three disciplines: enterprise software integration (SAP CPI, Node.js, Supabase), modern web delivery (React, TypeScript, Capacitor), and industrial automation (Kawasaki robotics, Allen-Bradley PLCs). I've built SAP integration flows serving 150+ employees, programmed 100+ industrial robots on Ford Motor Company production lines, and shipped consumer apps to the Google Play Store.</p>
+                    <p>Outside of code, I'm multilingual (English, Afrikaans, Spanish), competed in rugby, cricket, and baseball across three countries, and volunteered as an English teacher in rural New Delhi.</p>
+                    <div class="tag-cloud">
+                        <span class="chip">React &amp; TypeScript</span>
+                        <span class="chip">SAP CPI / BTP</span>
+                        <span class="chip">Node.js</span>
+                        <span class="chip">Supabase / PostgreSQL</span>
+                        <span class="chip">Kawasaki Robotics</span>
+                        <span class="chip">Allen-Bradley PLC</span>
+                        <span class="chip">Python</span>
+                        <span class="chip">Firebase</span>
+                        <span class="chip">Capacitor</span>
+                        <span class="chip">Tailwind CSS</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="fade-in">
-            <h2>Professional Experience</h2>
+        <!-- ===== EXPERIENCE ===== -->
+        <section id="experience" class="reveal">
+            <div class="section-label"><span class="section-num">02</span>Experience</div>
+            <h2 class="section-title">Professional journey</h2>
+
             <div class="timeline">
-                <div class="timeline-item">
-                    <h3>EPI-USE - Intern</h3>
-                    <p>Jan 2025 - Dec 2025</p>
-                    <p>Gaining experience in enterprise software solutions.</p>
+
+                <div class="tl-item reveal-stagger">
+                    <div class="tl-dot active"></div>
+                    <div class="tl-card tilt-card">
+                        <div class="tl-header">
+                            <div class="tl-info">
+                                <h3>Full Stack Developer</h3>
+                                <p class="tl-company">Robotic System Solutions (Pty) Ltd</p>
+                                <p class="tl-location"><i class="fas fa-map-marker-alt"></i> Krugersdorp, South Africa</p>
+                            </div>
+                            <span class="tl-badge active-badge">2026 – Present</span>
+                        </div>
+                        <ul class="tl-bullets">
+                            <li>Promoted from Junior Web Developer into a full stack engineering role spanning internal tooling, client deliverables, and integration between web platforms and operational automation systems.</li>
+                            <li>Owning frontend and backend delivery across the company's web application portfolio, contributing to architecture decisions, code reviews, and technical mentorship.</li>
+                            <li>Bridging web and industrial automation by applying prior Kawasaki robotics and PLC experience to design web interfaces and APIs that interact with operational systems on the manufacturing floor.</li>
+                        </ul>
+                        <div class="tl-stack">
+                            <span>React</span><span>TypeScript</span><span>Node.js</span><span>Supabase</span><span>Vite</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>Robotic System Solutions - Junior Robotic Programmer</h3>
-                    <p>Jan 2022 - Dec 2024</p>
-                    <p>Automation and robotics programming.</p>
+
+                <div class="tl-item reveal-stagger">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card tilt-card">
+                        <div class="tl-header">
+                            <div class="tl-info">
+                                <h3>SAP Integration Developer Intern</h3>
+                                <p class="tl-company">EPI-USE</p>
+                                <p class="tl-location"><i class="fas fa-map-marker-alt"></i> Pretoria, South Africa</p>
+                            </div>
+                            <span class="tl-badge">Jan 2025 – Dec 2025</span>
+                        </div>
+                        <ul class="tl-bullets">
+                            <li>Developed 4 SAP CPI integration flows for automated compensation letter generation, reducing manual processing time by <strong>80%</strong> and serving 150+ employees using Groovy scripting and XSLT transformations.</li>
+                            <li>Built end-to-end Workday synchronization application using SAP Fiori frontend and Node.js CAP services backend, enabling real-time HR data integration via OData APIs.</li>
+                            <li>Engineered SuccessFactors to SharePoint pipeline via Microsoft Graph API, automating document storage and reducing manual file handling by <strong>90%</strong>.</li>
+                            <li>Designed Apache NiFi ETL flows for processing password-encrypted Excel attachments from Gmail with automated data validation and transformation.</li>
+                            <li>Earned SAP Certified Associate Integration Developer certification during the internship, validating production-grade CPI competency.</li>
+                        </ul>
+                        <div class="tl-stack">
+                            <span>SAP CPI</span><span>SAP BTP</span><span>Groovy</span><span>XSLT</span><span>OData</span><span>Apache NiFi</span><span>Microsoft Graph API</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>Platinum Life - Data Capturer</h3>
-                    <p>Feb 2021 - Dec 2021</p>
-                    <p>Data management and analysis.</p>
+
+                <div class="tl-item reveal-stagger">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card tilt-card">
+                        <div class="tl-header">
+                            <div class="tl-info">
+                                <h3>Junior Robotic Programmer</h3>
+                                <p class="tl-company">Robotic System Solutions (Client: Ford Motor Company via Defalca)</p>
+                                <p class="tl-location"><i class="fas fa-map-marker-alt"></i> Pretoria, South Africa</p>
+                            </div>
+                            <span class="tl-badge">Jan 2022 – Dec 2024</span>
+                        </div>
+                        <ul class="tl-bullets">
+                            <li>Programmed <strong>100+ Kawasaki industrial robots</strong> across multiple Ford Motor Company production lines, ensuring precise automation sequences for vehicle assembly.</li>
+                            <li>Integrated Allen-Bradley PLCs with Coherix Predator3D vision systems, enabling real-time 3D quality inspection and reducing defect rates on assembly lines.</li>
+                            <li>Optimized robot cycle times for Twinsaver manufacturing client, improving production throughput and operational efficiency.</li>
+                            <li>Performed independent on-site troubleshooting, preventive maintenance, and system commissioning across multiple manufacturing facilities.</li>
+                        </ul>
+                        <div class="tl-stack">
+                            <span>Kawasaki Robotics</span><span>Allen-Bradley PLC</span><span>Coherix Predator3D</span><span>SCA Sealer Systems</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>British Telecommunications - Telecommunications Intern</h3>
-                    <p>2017</p>
-                    <p>New Delhi, India</p>
+
+                <div class="tl-item reveal-stagger">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card tilt-card">
+                        <div class="tl-header">
+                            <div class="tl-info">
+                                <h3>Data Capturer</h3>
+                                <p class="tl-company">Platinum Life</p>
+                                <p class="tl-location"><i class="fas fa-map-marker-alt"></i> Pretoria, South Africa</p>
+                            </div>
+                            <span class="tl-badge">Feb 2021 – Dec 2021</span>
+                        </div>
+                        <ul class="tl-bullets">
+                            <li>Captured and verified client data with high accuracy standards, maintaining strict data confidentiality and regulatory compliance.</li>
+                        </ul>
+                    </div>
                 </div>
+
             </div>
-            <blockquote>
-                <p>"Mathys consistently demonstrated professionalism, dedication, and a strong aptitude for learning and applying new concepts."</p>
-                <cite>- Dirk Naude, Associate Manager at EPI-USE</cite>
-            </blockquote>
-        </section>
 
-        <section id="skills" class="fade-in">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming & Web</h3>
-                    <div class="skill"><p>JavaScript / Node.js</p><div class="progress-bar" data-progress="90"></div></div>
-                    <div class="skill"><p>HTML5 & CSS</p><div class="progress-bar" data-progress="95"></div></div>
-                    <div class="skill"><p>C#</p><div class="progress-bar" data-progress="85"></div></div>
-                    <div class="skill"><p>Java</p><div class="progress-bar" data-progress="80"></div></div>
-                    <div class="skill"><p>Machine Learning</p><div class="progress-bar" data-progress="80"></div></div>
-                </div>
-                <div class="skill-category">
-                    <h3>Robotics & Automation</h3>
-                    <div class="skill"><p>Kawasaki Robotics & RPA</p><div class="progress-bar" data-progress="90"></div></div>
-                    <div class="skill"><p>SCA Sealer Applications</p><div class="progress-bar" data-progress="85"></div></div>
-                    <div class="skill"><p>Coherix Predator3D</p><div class="progress-bar" data-progress="80"></div></div>
-                </div>
-                <div class="skill-category">
-                    <h3>Enterprise & SAP</h3>
-                    <div class="skill"><p>SAP Fiori</p><div class="progress-bar" data-progress="85"></div></div>
-                    <div class="skill"><p>SAP CPI</p><div class="progress-bar" data-progress="80"></div></div>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases & General</h3>
-                    <div class="skill"><p>MySQL</p><div class="progress-bar" data-progress="85"></div></div>
-                    <div class="skill"><p>Computing Principles</p><div class="progress-bar" data-progress="95"></div></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="fade-in">
-            <h2>Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Belgium Campus ITversity - Bachelor of Computing</h3>
-                    <p>2019-Present</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>The British International School, New Delhi - International Baccalaureate Programme</h3>
-                    <p>2016-2018</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>American Embassy School, New Delhi - Grade 10-11</h3>
-                    <p>2014-2016</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>Die Hoërskool Wonderboom</h3>
-                    <p>2012-2014</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="international-experience" class="fade-in">
-            <h2>International Experience</h2>
-            <ul>
-                <li>Lived and studied in India</li>
-                <li>Played baseball in Dubai and Abu Dhabi</li>
-                <li>Volunteer work teaching English in New Delhi</li>
-            </ul>
-        </section>
-
-        <section id="recommendation" class="fade-in">
-            <h2>Professional Recommendation</h2>
-            <blockquote>
-                <p>"Mathys consistently demonstrated professionalism, dedication, and a strong aptitude for learning and applying new concepts. He helped with contributions to projects and showed a solid understanding of technical principles. Mathys approached tasks with care and attention to detail, and his collaborative attitude made him a valued member of the team."</p>
-                <cite>- Dirk Naude, Associate Manager at EPI-USE</cite>
-            </blockquote>
-            <div class="center-button">
-                <a href="assets/EPI-USE_Reference_Letter.pdf" class="cta-button" target="_blank">View Reference Letter</a>
+            <div class="recommendation reveal-stagger">
+                <div class="rec-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <blockquote>"Mathys consistently demonstrated professionalism, dedication, and a strong aptitude for learning and applying new concepts. He helped with contributions to projects and showed a solid understanding of technical principles. Mathys approached tasks with care and attention to detail, and his collaborative attitude made him a valued member of the team."</blockquote>
+                <cite>— Dirk Naude, Associate Manager at EPI-USE</cite>
+                <a href="assets/EPI-USE_Reference_Letter.pdf" class="btn btn-sm" target="_blank"><i class="fas fa-file-pdf"></i> View Reference Letter</a>
             </div>
         </section>
+
+        <!-- ===== SKILLS ===== -->
+        <section id="skills">
+            <div class="skills-inner">
+                <div class="section-label light"><span class="section-num">03</span>Skills</div>
+                <h2 class="section-title light">Technical toolbox</h2>
+                <div class="skills-grid">
+
+                    <div class="skill-group reveal-stagger">
+                        <h3><i class="fas fa-code"></i> Frontend</h3>
+                        <div class="skill-row"><span>React / Vite</span><div class="progress-bar" data-progress="90"></div></div>
+                        <div class="skill-row"><span>TypeScript / JavaScript</span><div class="progress-bar" data-progress="92"></div></div>
+                        <div class="skill-row"><span>HTML5 &amp; CSS3</span><div class="progress-bar" data-progress="95"></div></div>
+                        <div class="skill-row"><span>Tailwind CSS</span><div class="progress-bar" data-progress="85"></div></div>
+                        <div class="skill-row"><span>Capacitor (iOS/Android)</span><div class="progress-bar" data-progress="80"></div></div>
+                        <div class="skill-row"><span>SAP Fiori / SAPUI5</span><div class="progress-bar" data-progress="82"></div></div>
+                    </div>
+
+                    <div class="skill-group reveal-stagger">
+                        <h3><i class="fas fa-server"></i> Backend</h3>
+                        <div class="skill-row"><span>Node.js / Express</span><div class="progress-bar" data-progress="88"></div></div>
+                        <div class="skill-row"><span>SAP CAP Services</span><div class="progress-bar" data-progress="80"></div></div>
+                        <div class="skill-row"><span>Python</span><div class="progress-bar" data-progress="78"></div></div>
+                        <div class="skill-row"><span>REST API / OData / SOAP</span><div class="progress-bar" data-progress="85"></div></div>
+                        <div class="skill-row"><span>Java / C# / PHP</span><div class="progress-bar" data-progress="75"></div></div>
+                        <div class="skill-row"><span>Groovy / XSLT</span><div class="progress-bar" data-progress="80"></div></div>
+                    </div>
+
+                    <div class="skill-group reveal-stagger">
+                        <h3><i class="fas fa-database"></i> Data &amp; Cloud</h3>
+                        <div class="skill-row"><span>PostgreSQL / Supabase</span><div class="progress-bar" data-progress="88"></div></div>
+                        <div class="skill-row"><span>PostGIS (Geospatial)</span><div class="progress-bar" data-progress="75"></div></div>
+                        <div class="skill-row"><span>MySQL</span><div class="progress-bar" data-progress="85"></div></div>
+                        <div class="skill-row"><span>Firebase Firestore</span><div class="progress-bar" data-progress="80"></div></div>
+                        <div class="skill-row"><span>SAP BTP / CPI</span><div class="progress-bar" data-progress="88"></div></div>
+                        <div class="skill-row"><span>Microsoft Graph API</span><div class="progress-bar" data-progress="78"></div></div>
+                    </div>
+
+                    <div class="skill-group reveal-stagger">
+                        <h3><i class="fas fa-robot"></i> Automation &amp; DevOps</h3>
+                        <div class="skill-row"><span>Kawasaki Robotics</span><div class="progress-bar" data-progress="92"></div></div>
+                        <div class="skill-row"><span>Allen-Bradley PLC</span><div class="progress-bar" data-progress="85"></div></div>
+                        <div class="skill-row"><span>Coherix Predator3D</span><div class="progress-bar" data-progress="82"></div></div>
+                        <div class="skill-row"><span>Apache NiFi</span><div class="progress-bar" data-progress="75"></div></div>
+                        <div class="skill-row"><span>Git / GitHub Actions</span><div class="progress-bar" data-progress="88"></div></div>
+                        <div class="skill-row"><span>CI/CD Pipelines</span><div class="progress-bar" data-progress="80"></div></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects" class="reveal">
+            <div class="section-label"><span class="section-num">04</span>Projects</div>
+            <h2 class="section-title">Things I've built</h2>
+            <div class="projects-grid">
+
+                <div class="project-card tilt-card reveal-stagger" style="--card-color: #2563eb;">
+                    <div class="card-top-bar"></div>
+                    <div class="project-card-header">
+                        <div class="project-icon-wrap"><i class="fas fa-cow"></i></div>
+                        <a href="https://herdsync.co.za" target="_blank" class="project-link-icon" aria-label="Live site"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3>HerdSync</h3>
+                    <p>Production livestock tracking and management platform for South African farmers. Full SEO strategy, Data Safety compliance, and SA-targeted long-tail keyword optimization.</p>
+                    <div class="project-tech">
+                        <span>React</span><span>TypeScript</span><span>Vite</span><span>Supabase</span><span>Capacitor</span><span>PostgreSQL</span>
+                    </div>
+                    <div class="project-status-badge live"><i class="fas fa-circle"></i> Live on Google Play Store</div>
+                </div>
+
+                <div class="project-card tilt-card reveal-stagger" style="--card-color: #0891b2;">
+                    <div class="card-top-bar"></div>
+                    <div class="project-card-header">
+                        <div class="project-icon-wrap"><i class="fas fa-gas-pump"></i></div>
+                        <span></span>
+                    </div>
+                    <h3>FuelWatch SA</h3>
+                    <p>Crowdsourced fuel price comparison mobile app with dark HUD aesthetic. A 60/40 weighted scoring algorithm balances price and distance, backed by PostGIS geospatial queries and Firebase push notifications.</p>
+                    <div class="project-tech">
+                        <span>React</span><span>Supabase</span><span>PostGIS</span><span>Capacitor</span><span>Firebase FCM</span>
+                    </div>
+                    <div class="project-status-badge"><i class="fas fa-mobile-alt"></i> iOS &amp; Android</div>
+                </div>
+
+                <div class="project-card tilt-card reveal-stagger" style="--card-color: #dc2626;">
+                    <div class="card-top-bar"></div>
+                    <div class="project-card-header">
+                        <div class="project-icon-wrap"><i class="fas fa-dumbbell"></i></div>
+                        <span></span>
+                    </div>
+                    <h3>FEROX Performance</h3>
+                    <p>Co-Founder &amp; CTO of a pre-workout supplement brand. Leading technical strategy, Shopify storefront development, product data architecture, and digital marketing infrastructure.</p>
+                    <div class="project-tech">
+                        <span>Shopify</span><span>E-Commerce</span><span>Digital Marketing</span>
+                    </div>
+                    <div class="project-status-badge"><i class="fas fa-briefcase"></i> Co-Founder / CTO</div>
+                </div>
+
+                <div class="project-card tilt-card reveal-stagger" style="--card-color: #7c3aed;">
+                    <div class="card-top-bar"></div>
+                    <div class="project-card-header">
+                        <div class="project-icon-wrap"><i class="fas fa-envelope-open-text"></i></div>
+                        <span></span>
+                    </div>
+                    <h3>Marketing System Desktop</h3>
+                    <p>Electron &amp; Supabase desktop app featuring LinkedIn, Google Maps, and website scrapers; email verification via Abstract API; and a Mailgun-based bulk email campaign system with deliverability tracking.</p>
+                    <div class="project-tech">
+                        <span>Electron</span><span>Supabase</span><span>Mailgun</span><span>Abstract API</span>
+                    </div>
+                    <div class="project-status-badge"><i class="fas fa-desktop"></i> Desktop Application</div>
+                </div>
+
+                <div class="project-card tilt-card reveal-stagger" style="--card-color: #059669;">
+                    <div class="card-top-bar"></div>
+                    <div class="project-card-header">
+                        <div class="project-icon-wrap"><i class="fas fa-robot"></i></div>
+                        <span></span>
+                    </div>
+                    <h3>CodeBuddy</h3>
+                    <p>AI-powered teaching assistant for first-year programming courses, using machine learning to provide personalised, context-aware coding guidance and feedback to students.</p>
+                    <div class="project-tech">
+                        <span>Machine Learning</span><span>Python</span><span>AI</span>
+                    </div>
+                    <div class="project-status-badge"><i class="fas fa-graduation-cap"></i> EdTech / Academic</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== CERTIFICATIONS ===== -->
+        <section id="certifications" class="reveal">
+            <div class="section-label"><span class="section-num">05</span>Certifications</div>
+            <h2 class="section-title">Credentials</h2>
+            <div class="cert-row">
+                <div class="cert-card tilt-card reveal-stagger">
+                    <div class="cert-icon-wrap">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="cert-body">
+                        <p class="cert-issuer">SAP SE</p>
+                        <h3>SAP Certified Associate</h3>
+                        <h4>Integration Developer</h4>
+                        <p class="cert-meta"><i class="fas fa-calendar-check"></i> Issued December 2025</p>
+                        <p class="cert-desc">Production-grade competency in SAP Cloud Platform Integration (CPI), earned during a year-long enterprise integration internship at EPI-USE, Pretoria.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EDUCATION ===== -->
+        <section id="education" class="reveal">
+            <div class="section-label"><span class="section-num">06</span>Education</div>
+            <h2 class="section-title">Academic foundation</h2>
+            <div class="edu-grid">
+
+                <div class="edu-card tilt-card reveal-stagger">
+                    <div class="edu-year-badge">2019 – 2026</div>
+                    <h3>Bachelor of Computing (NQF Level 8)</h3>
+                    <p class="edu-school">Belgium Campus iTversity</p>
+                    <p class="edu-loc"><i class="fas fa-map-marker-alt"></i> Pretoria, South Africa</p>
+                    <div class="edu-stats-row">
+                        <div class="edu-stat">
+                            <strong>61.8%</strong>
+                            <span>Weighted Average</span>
+                        </div>
+                        <div class="edu-stat">
+                            <strong>9</strong>
+                            <span>Distinctions</span>
+                        </div>
+                        <div class="edu-stat">
+                            <strong>360</strong>
+                            <span>Credits</span>
+                        </div>
+                    </div>
+                    <p class="edu-subjects"><strong>Key Coursework:</strong> Machine Learning, Artificial Intelligence, Business Intelligence (CRISP-DM), Database Development, Software Engineering, Web Development, Information Systems, Project Management, Statistics, Abstract &amp; Linear Algebra.</p>
+                </div>
+
+                <div class="edu-card tilt-card reveal-stagger">
+                    <div class="edu-year-badge">2016 – 2018</div>
+                    <h3>International Baccalaureate (IB) Diploma</h3>
+                    <p class="edu-school">The British International School</p>
+                    <p class="edu-loc"><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                    <p class="edu-subjects">Internationally recognised programme completed while living abroad in New Delhi, building a foundation of analytical thinking and cross-cultural adaptability.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== INTERNATIONAL / BEYOND THE CODE ===== -->
+        <section id="international" class="reveal">
+            <div class="intl-inner">
+                <div class="section-label light"><span class="section-num">07</span>Background</div>
+                <h2 class="section-title light">Beyond the code</h2>
+                <div class="intl-grid">
+                    <div class="intl-card reveal-stagger">
+                        <div class="intl-icon"><i class="fas fa-globe-africa"></i></div>
+                        <h3>Three Continents</h3>
+                        <p>Lived and worked across Africa, Asia, and the Middle East, building an adaptable cross-cultural perspective that shapes how I collaborate and problem-solve.</p>
+                    </div>
+                    <div class="intl-card reveal-stagger">
+                        <div class="intl-icon"><i class="fas fa-language"></i></div>
+                        <h3>Multilingual</h3>
+                        <p>Fluent in English and Afrikaans, conversational in Spanish. IB education in New Delhi deepened global awareness and academic rigour.</p>
+                    </div>
+                    <div class="intl-card reveal-stagger">
+                        <div class="intl-icon"><i class="fas fa-hands-helping"></i></div>
+                        <h3>Community</h3>
+                        <p>Volunteer English teacher in rural New Delhi. Organized NGO sports events. The belief that technology should serve people extends far beyond the screen.</p>
+                    </div>
+                    <div class="intl-card reveal-stagger">
+                        <div class="intl-icon"><i class="fas fa-trophy"></i></div>
+                        <h3>Athletics</h3>
+                        <p>Competitive rugby, cricket, and baseball. Played varsity baseball in Dubai and Abu Dhabi — the discipline and teamwork transfer directly to engineering.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <a href="#hero" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    <a href="#hero" class="back-to-top" id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 
+    <!-- ===== FOOTER / CONTACT ===== -->
     <footer id="contact">
-        <div class="social-media">
-             <a href="https://www.linkedin.com/in/mathys-johannes-van-heerden-3b4993225" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <div class="footer-inner">
+            <h2>Let's build something great</h2>
+            <p>Open to full stack, integration, and automation engineering opportunities.</p>
+            <div class="footer-contacts">
+                <a href="mailto:tj.vanheerden717@gmail.com"><i class="fas fa-envelope"></i> tj.vanheerden717@gmail.com</a>
+                <a href="tel:+27814597608"><i class="fas fa-phone"></i> +27 81 459 7608</a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/mathys-johannes-van-heerden-3b4993225" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/MathysVH98" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:tj.vanheerden717@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
         </div>
-        <p>Johannesburg, Gauteng, South Africa</p>
-        <p>&copy; 2025 Mathys Johannes Van Heerden</p>
+        <div class="footer-bottom">
+            <p>Krugersdorp, Gauteng, South Africa</p>
+            <p>&copy; 2026 Mathys (TJ) Van Heerden</p>
+        </div>
     </footer>
 
     <view-counter></view-counter>
