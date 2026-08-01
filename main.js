@@ -1,10 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Respect the user's motion preference. Disables decorative,
+    // JS-driven continuous motion (particles, 3D tilt) that CSS
+    // transition overrides alone can't reach.
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Mouse-only flourishes (custom cursor, magnetic buttons) are gated
+    // on a fine pointer so touch and keyboard users never lose function
+    // they never had access to in the first place.
+    const pointerFine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
     // =============================================
     // NAVBAR: scroll state + active highlight
     // =============================================
     const navbar  = document.getElementById('navbar');
     const sections = document.querySelectorAll('main section[id]');
+
+    const scrollProgress = document.getElementById('scroll-progress');
 
     const onScroll = () => {
         navbar.classList.toggle('scrolled', window.scrollY > 60);
@@ -13,7 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('back-to-top')
             .classList.toggle('visible', window.scrollY > 400);
 
-        // Hero content parallax — only while hero is in view
+        // Scroll progress bar
+        if (scrollProgress) {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+            scrollProgress.style.width = pct + '%';
+        }
+
+        // Hero content parallax, only while hero is in view
         const heroContent = document.getElementById('hero-content');
         if (heroContent) {
             const sy = window.scrollY;
@@ -60,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // =============================================
-    // HERO CANVAS — particle network
+    // HERO CANVAS: particle network
     // =============================================
     const canvas = document.getElementById('hero-canvas');
     const ctx    = canvas.getContext('2d');
@@ -152,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.clearRect(0, 0, w, h);
         particles.forEach(p => { p.update(); p.draw(); });
         drawLines();
-        requestAnimationFrame(animate);
+        if (!reduceMotion) requestAnimationFrame(animate);
     };
     animate();
 
@@ -283,23 +302,109 @@ document.addEventListener('DOMContentLoaded', () => {
     // =============================================
     // 3D CARD TILT
     // =============================================
-    document.querySelectorAll('.tilt-card').forEach(card => {
-        const MAX_ROT = 7;
-        card.addEventListener('mousemove', e => {
-            const r  = card.getBoundingClientRect();
-            const cx = r.left + r.width  / 2;
-            const cy = r.top  + r.height / 2;
-            const rx = -(e.clientY - cy) / (r.height / 2) * MAX_ROT;
-            const ry =  (e.clientX - cx) / (r.width  / 2) * MAX_ROT;
-            card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
-            card.style.boxShadow = `0 20px 50px rgba(0,0,0,.15), ${-ry * .5}px ${rx * .5}px 20px rgba(37,99,235,.1)`;
+    if (!reduceMotion) {
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            const MAX_ROT = 7;
+            card.addEventListener('mousemove', e => {
+                const r  = card.getBoundingClientRect();
+                const cx = r.left + r.width  / 2;
+                const cy = r.top  + r.height / 2;
+                const rx = -(e.clientY - cy) / (r.height / 2) * MAX_ROT;
+                const ry =  (e.clientX - cx) / (r.width  / 2) * MAX_ROT;
+                card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
+                card.style.boxShadow = `0 20px 50px rgba(0,0,0,.15), ${-ry * .5}px ${rx * .5}px 20px rgba(37,99,235,.1)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform  = '';
+                card.style.boxShadow  = '';
+                card.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1), box-shadow .5s cubic-bezier(.4,0,.2,1)';
+                setTimeout(() => { card.style.transition = ''; }, 500);
+            });
         });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform  = '';
-            card.style.boxShadow  = '';
-            card.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1), box-shadow .5s cubic-bezier(.4,0,.2,1)';
-            setTimeout(() => { card.style.transition = ''; }, 500);
+    }
+
+
+    // =============================================
+    // CUSTOM CURSOR (desktop, fine pointer only)
+    // =============================================
+    if (pointerFine) {
+        const cursorDot  = document.createElement('div');
+        cursorDot.id = 'cursor-dot';
+        const cursorRing = document.createElement('div');
+        cursorRing.id = 'cursor-ring';
+        document.body.append(cursorDot, cursorRing);
+
+        window.addEventListener('mousemove', e => {
+            cursorDot.style.left  = cursorRing.style.left = e.clientX + 'px';
+            cursorDot.style.top   = cursorRing.style.top  = e.clientY + 'px';
+        });
+
+        const HOVER_TARGETS = 'a, button, .tilt-card, .chip, .ds-swatch, input, textarea, [role="button"]';
+        document.addEventListener('mouseover', e => {
+            if (e.target.closest(HOVER_TARGETS)) cursorRing.classList.add('cursor-hover');
+        });
+        document.addEventListener('mouseout', e => {
+            if (e.target.closest(HOVER_TARGETS)) cursorRing.classList.remove('cursor-hover');
+        });
+    }
+
+
+    // =============================================
+    // MAGNETIC HERO BUTTONS
+    // =============================================
+    if (pointerFine && !reduceMotion) {
+        document.querySelectorAll('.hero-actions .btn').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const r = btn.getBoundingClientRect();
+                const x = (e.clientX - r.left - r.width  / 2) * .25;
+                const y = (e.clientY - r.top  - r.height / 2) * .35;
+                btn.style.transition = '';
+                btn.style.transform  = `translate(${x}px, ${y}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transition = 'transform .5s cubic-bezier(.34,1.56,.64,1)';
+                btn.style.transform  = '';
+            });
+        });
+    }
+
+
+    // =============================================
+    // LIVE DESIGN SYSTEM (color copy + motion demo)
+    // =============================================
+    document.querySelectorAll('.ds-swatch').forEach(sw => {
+        sw.addEventListener('click', () => {
+            const hex  = sw.dataset.hex;
+            const hexEl = sw.querySelector('.ds-swatch-hex');
+            const original = hexEl ? hexEl.textContent : '';
+            navigator.clipboard?.writeText(hex).catch(() => {});
+            sw.classList.add('copied');
+            if (hexEl) hexEl.textContent = 'Copied!';
+            setTimeout(() => {
+                sw.classList.remove('copied');
+                if (hexEl) hexEl.textContent = original;
+            }, 1200);
         });
     });
+
+    const motionDot  = document.getElementById('ds-motion-dot');
+    const motionBtn  = document.getElementById('ds-motion-replay');
+    if (motionDot && motionDot.parentElement) {
+        const track = motionDot.parentElement;
+        const runMotionDemo = () => {
+            motionDot.style.transition = 'none';
+            motionDot.style.transform  = 'translateX(0)';
+            void motionDot.offsetWidth;
+            requestAnimationFrame(() => {
+                const dist = track.clientWidth - motionDot.clientWidth - 8;
+                motionDot.style.transition = reduceMotion ? 'none' : 'transform 1.1s cubic-bezier(.4,0,.2,1)';
+                motionDot.style.transform  = `translateX(${dist}px)`;
+            });
+        };
+        motionBtn?.addEventListener('click', runMotionDemo);
+        new IntersectionObserver((entries, obs) => {
+            if (entries[0].isIntersecting) { runMotionDemo(); obs.disconnect(); }
+        }, { threshold: .5 }).observe(track);
+    }
 
 });

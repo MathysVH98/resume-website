@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathys (TJ) Van Heerden — Full Stack Developer</title>
-    <meta name="description" content="Full Stack Developer and SAP Certified Integration Developer based in South Africa. React, TypeScript, Node.js, Supabase, SAP CPI.">
+    <title>Mathys (TJ) Van Heerden, Full Stack Developer</title>
+    <meta name="description" content="Full Stack Developer and SAP Certified Integration Developer based in South Africa, with a product design practice spanning UI/UX, design systems, and interaction design. React, TypeScript, Node.js, Supabase, SAP CPI.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,12 +15,16 @@
 </head>
 <body>
 
+    <div id="scroll-progress"></div>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
     <!-- ===== NAVBAR ===== -->
     <header id="navbar">
         <nav>
             <a href="#hero" class="nav-logo">TJ</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#design">Design</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -39,6 +43,7 @@
         <button class="mobile-close" id="mobile-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
         <ul>
             <li><a href="#about" class="mobile-link">About</a></li>
+            <li><a href="#design" class="mobile-link">Design</a></li>
             <li><a href="#experience" class="mobile-link">Experience</a></li>
             <li><a href="#skills" class="mobile-link">Skills</a></li>
             <li><a href="#projects" class="mobile-link">Projects</a></li>
@@ -48,7 +53,7 @@
         </ul>
     </div>
 
-    <main>
+    <main id="main-content">
 
         <!-- ===== HERO ===== -->
         <section id="hero">
@@ -131,9 +136,79 @@
             </div>
         </section>
 
+        <!-- ===== DESIGN ===== -->
+        <section id="design" class="reveal">
+            <div class="section-label"><span class="section-num">02</span>Design</div>
+            <h2 class="section-title">A design system, live from this page</h2>
+            <p class="design-intro">I'm an engineer, not a career-trained UI/UX designer. Four years of turning SAP integration flows, robot programming logic, and a SaaS product into interfaces people can actually use taught me this craft. Nothing below is a mockup. It's pulled straight from the CSS running this page, click a swatch to copy its hex.</p>
+
+            <div class="design-system-panel">
+
+                <div class="ds-block">
+                    <h3 class="ds-block-title"><i class="fas fa-palette"></i> Color</h3>
+                    <div class="ds-swatches">
+                        <button type="button" class="ds-swatch" style="--sw:#2563eb" data-hex="#2563EB" aria-label="Copy Blue, hex 2563EB">
+                            <span class="ds-swatch-copy"><span class="ds-swatch-name">Blue</span><span class="ds-swatch-hex">#2563EB</span></span>
+                        </button>
+                        <button type="button" class="ds-swatch" style="--sw:#7c3aed" data-hex="#7C3AED" aria-label="Copy Violet, hex 7C3AED">
+                            <span class="ds-swatch-copy"><span class="ds-swatch-name">Violet</span><span class="ds-swatch-hex">#7C3AED</span></span>
+                        </button>
+                        <button type="button" class="ds-swatch" style="--sw:#06b6d4" data-hex="#06B6D4" aria-label="Copy Cyan, hex 06B6D4">
+                            <span class="ds-swatch-copy"><span class="ds-swatch-name">Cyan</span><span class="ds-swatch-hex">#06B6D4</span></span>
+                        </button>
+                        <button type="button" class="ds-swatch" style="--sw:#16a34a" data-hex="#16A34A" aria-label="Copy Green, hex 16A34A">
+                            <span class="ds-swatch-copy"><span class="ds-swatch-name">Green</span><span class="ds-swatch-hex">#16A34A</span></span>
+                        </button>
+                        <button type="button" class="ds-swatch" style="--sw:#0f172a" data-hex="#0F172A" aria-label="Copy Dark navy, hex 0F172A">
+                            <span class="ds-swatch-copy"><span class="ds-swatch-name">Navy</span><span class="ds-swatch-hex">#0F172A</span></span>
+                        </button>
+                        <button type="button" class="ds-swatch" style="--sw:#64748b" data-hex="#64748B" aria-label="Copy Slate, hex 64748B">
+                            <span class="ds-swatch-copy"><span class="ds-swatch-name">Slate</span><span class="ds-swatch-hex">#64748B</span></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ds-block">
+                    <h3 class="ds-block-title"><i class="fas fa-text-height"></i> Type scale</h3>
+                    <div class="ds-type-scale">
+                        <div class="ds-type-row"><span class="ds-type-tag">Display / 56</span><span class="ds-type-sample ds-t-display">Aa</span></div>
+                        <div class="ds-type-row"><span class="ds-type-tag">Heading / 32</span><span class="ds-type-sample ds-t-h2">Aa</span></div>
+                        <div class="ds-type-row"><span class="ds-type-tag">Body / 16</span><span class="ds-type-sample ds-t-body">The quick brown fox</span></div>
+                        <div class="ds-type-row"><span class="ds-type-tag">Mono / 13</span><span class="ds-type-sample ds-t-mono">const craft = true;</span></div>
+                    </div>
+                </div>
+
+                <div class="ds-block">
+                    <h3 class="ds-block-title"><i class="fas fa-ruler-combined"></i> Spacing rhythm</h3>
+                    <div class="ds-spacing-scale">
+                        <div class="ds-space-row"><div class="ds-space-bar" style="width:8px"></div><span>8</span></div>
+                        <div class="ds-space-row"><div class="ds-space-bar" style="width:16px"></div><span>16</span></div>
+                        <div class="ds-space-row"><div class="ds-space-bar" style="width:24px"></div><span>24</span></div>
+                        <div class="ds-space-row"><div class="ds-space-bar" style="width:32px"></div><span>32</span></div>
+                        <div class="ds-space-row"><div class="ds-space-bar" style="width:48px"></div><span>48</span></div>
+                    </div>
+                </div>
+
+                <div class="ds-block">
+                    <h3 class="ds-block-title"><i class="fas fa-wave-square"></i> Motion</h3>
+                    <div class="ds-motion-demo">
+                        <div class="ds-motion-track"><div class="ds-motion-dot" id="ds-motion-dot"></div></div>
+                        <button type="button" class="btn-sm ds-motion-btn" id="ds-motion-replay">Replay easing</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="design-principles">
+                <div class="design-chip reveal-stagger"><strong>Complexity into clarity.</strong> I turn SAP integration flows and robot programming logic into interfaces people use without training.</div>
+                <div class="design-chip reveal-stagger"><strong>Systems, not screens.</strong> Industrial automation taught me to design for feedback loops and failure states, not just the happy path.</div>
+                <div class="design-chip reveal-stagger"><strong>End-to-end ownership.</strong> On HerdSync I owned all of it: problem, wireframes, UI, build, and shipping to the Play Store.</div>
+            </div>
+        </section>
+
         <!-- ===== EXPERIENCE ===== -->
         <section id="experience" class="reveal">
-            <div class="section-label"><span class="section-num">02</span>Experience</div>
+            <div class="section-label"><span class="section-num">03</span>Experience</div>
             <h2 class="section-title">Professional journey</h2>
 
             <div class="timeline">
@@ -143,19 +218,21 @@
                     <div class="tl-card tilt-card">
                         <div class="tl-header">
                             <div class="tl-info">
-                                <h3>Full Stack Developer</h3>
+                                <h3>Junior Full Stack Developer</h3>
                                 <p class="tl-company">Robotic System Solutions (Pty) Ltd</p>
                                 <p class="tl-location"><i class="fas fa-map-marker-alt"></i> Krugersdorp, South Africa</p>
                             </div>
-                            <span class="tl-badge active-badge">2026 – Present</span>
+                            <span class="tl-badge active-badge">Feb 2026 – Present</span>
                         </div>
                         <ul class="tl-bullets">
-                            <li>Promoted from Junior Web Developer into a full stack engineering role spanning internal tooling, client deliverables, and integration between web platforms and operational automation systems.</li>
-                            <li>Owning frontend and backend delivery across the company's web application portfolio, contributing to architecture decisions, code reviews, and technical mentorship.</li>
-                            <li>Bridging web and industrial automation by applying prior Kawasaki robotics and PLC experience to design web interfaces and APIs that interact with operational systems on the manufacturing floor.</li>
+                            <li>Designed, built, and deployed <strong>HerdSync</strong>, a multi-tenant livestock management and traceability SaaS platform, live in production at herdsync.co.za.</li>
+                            <li>Shipped the HerdSync Android app through <strong>Google Play closed testing</strong>, handling the full Play Console setup: data safety declarations, store listing, and staged tester rollout.</li>
+                            <li>Engineered an <strong>RFID hardware integration gateway</strong> on Raspberry Pi, with a secure heartbeat Edge Function, device auto-registration, and timing-safe token authentication for livestock scanning.</li>
+                            <li>Implemented a multi-tenant PostgreSQL architecture with <strong>Row Level Security</strong> policies, database migrations, and scheduled data retention via pg_cron.</li>
+                            <li>Authored a <strong>NIST SP 800-61</strong> aligned incident response procedure with defined roles and SLAs, alongside client-facing web projects delivered under NDA.</li>
                         </ul>
                         <div class="tl-stack">
-                            <span>React</span><span>TypeScript</span><span>Node.js</span><span>Supabase</span><span>Vite</span>
+                            <span>React</span><span>TypeScript</span><span>Vite</span><span>Capacitor</span><span>Supabase</span><span>Raspberry Pi</span>
                         </div>
                     </div>
                 </div>
@@ -198,6 +275,7 @@
                         <ul class="tl-bullets">
                             <li>Programmed <strong>100+ Kawasaki industrial robots</strong> across multiple Ford Motor Company production lines, ensuring precise automation sequences for vehicle assembly.</li>
                             <li>Integrated Allen-Bradley PLCs with Coherix Predator3D vision systems, enabling real-time 3D quality inspection and reducing defect rates on assembly lines.</li>
+                            <li>Configured Coherix 3D vision cameras for automated bead inspection, achieving a significant reduction in quality defects on assembly lines.</li>
                             <li>Optimized robot cycle times for Twinsaver manufacturing client, improving production throughput and operational efficiency.</li>
                             <li>Performed independent on-site troubleshooting, preventive maintenance, and system commissioning across multiple manufacturing facilities.</li>
                         </ul>
@@ -229,7 +307,7 @@
             <div class="recommendation reveal-stagger">
                 <div class="rec-quote-icon"><i class="fas fa-quote-left"></i></div>
                 <blockquote>"Mathys consistently demonstrated professionalism, dedication, and a strong aptitude for learning and applying new concepts. He helped with contributions to projects and showed a solid understanding of technical principles. Mathys approached tasks with care and attention to detail, and his collaborative attitude made him a valued member of the team."</blockquote>
-                <cite>— Dirk Naude, Associate Manager at EPI-USE</cite>
+                <cite>Dirk Naude, Associate Manager at EPI-USE</cite>
                 <a href="assets/EPI-USE_Reference_Letter.pdf" class="btn btn-sm" target="_blank"><i class="fas fa-file-pdf"></i> View Reference Letter</a>
             </div>
         </section>
@@ -237,7 +315,7 @@
         <!-- ===== SKILLS ===== -->
         <section id="skills">
             <div class="skills-inner">
-                <div class="section-label light"><span class="section-num">03</span>Skills</div>
+                <div class="section-label light"><span class="section-num">04</span>Skills</div>
                 <h2 class="section-title light">Technical toolbox</h2>
                 <div class="skills-grid">
 
@@ -281,13 +359,23 @@
                         <div class="skill-row"><span>CI/CD Pipelines</span><div class="progress-bar" data-progress="80"></div></div>
                     </div>
 
+                    <div class="skill-group reveal-stagger">
+                        <h3><i class="fas fa-pen-ruler"></i> Design &amp; UX</h3>
+                        <div class="skill-row"><span>UI Design &amp; Visual Systems</span><div class="progress-bar" data-progress="82"></div></div>
+                        <div class="skill-row"><span>Interaction &amp; Motion Design</span><div class="progress-bar" data-progress="80"></div></div>
+                        <div class="skill-row"><span>Wireframing &amp; Prototyping</span><div class="progress-bar" data-progress="75"></div></div>
+                        <div class="skill-row"><span>Design Systems &amp; Component Libraries</span><div class="progress-bar" data-progress="85"></div></div>
+                        <div class="skill-row"><span>Accessibility (WCAG)</span><div class="progress-bar" data-progress="72"></div></div>
+                        <div class="skill-row"><span>Information Architecture</span><div class="progress-bar" data-progress="78"></div></div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
         <!-- ===== PROJECTS ===== -->
         <section id="projects" class="reveal">
-            <div class="section-label"><span class="section-num">04</span>Projects</div>
+            <div class="section-label"><span class="section-num">05</span>Projects</div>
             <h2 class="section-title">Things I've built</h2>
             <div class="projects-grid">
 
@@ -298,53 +386,11 @@
                         <a href="https://herdsync.co.za" target="_blank" class="project-link-icon" aria-label="Live site"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <h3>HerdSync</h3>
-                    <p>Production livestock tracking and management platform for South African farmers. Full SEO strategy, Data Safety compliance, and SA-targeted long-tail keyword optimization.</p>
+                    <p>Multi-tenant livestock management and traceability SaaS with RFID hardware integration, deployed to production web and Google Play closed testing.</p>
                     <div class="project-tech">
-                        <span>React</span><span>TypeScript</span><span>Vite</span><span>Supabase</span><span>Capacitor</span><span>PostgreSQL</span>
+                        <span>React</span><span>TypeScript</span><span>Vite</span><span>Capacitor</span><span>Supabase</span><span>PostgreSQL</span>
                     </div>
-                    <div class="project-status-badge live"><i class="fas fa-circle"></i> Live on Google Play Store</div>
-                </div>
-
-                <div class="project-card tilt-card reveal-stagger" style="--card-color: #0891b2;">
-                    <div class="card-top-bar"></div>
-                    <div class="project-card-header">
-                        <div class="project-icon-wrap"><i class="fas fa-gas-pump"></i></div>
-                        <span></span>
-                    </div>
-                    <h3>FuelWatch SA</h3>
-                    <p>Crowdsourced fuel price comparison mobile app with dark HUD aesthetic. A 60/40 weighted scoring algorithm balances price and distance, backed by PostGIS geospatial queries and Firebase push notifications.</p>
-                    <div class="project-tech">
-                        <span>React</span><span>Supabase</span><span>PostGIS</span><span>Capacitor</span><span>Firebase FCM</span>
-                    </div>
-                    <div class="project-status-badge"><i class="fas fa-mobile-alt"></i> iOS &amp; Android</div>
-                </div>
-
-                <div class="project-card tilt-card reveal-stagger" style="--card-color: #dc2626;">
-                    <div class="card-top-bar"></div>
-                    <div class="project-card-header">
-                        <div class="project-icon-wrap"><i class="fas fa-dumbbell"></i></div>
-                        <span></span>
-                    </div>
-                    <h3>FEROX Performance</h3>
-                    <p>Co-Founder &amp; CTO of a pre-workout supplement brand. Leading technical strategy, Shopify storefront development, product data architecture, and digital marketing infrastructure.</p>
-                    <div class="project-tech">
-                        <span>Shopify</span><span>E-Commerce</span><span>Digital Marketing</span>
-                    </div>
-                    <div class="project-status-badge"><i class="fas fa-briefcase"></i> Co-Founder / CTO</div>
-                </div>
-
-                <div class="project-card tilt-card reveal-stagger" style="--card-color: #7c3aed;">
-                    <div class="card-top-bar"></div>
-                    <div class="project-card-header">
-                        <div class="project-icon-wrap"><i class="fas fa-envelope-open-text"></i></div>
-                        <span></span>
-                    </div>
-                    <h3>Marketing System Desktop</h3>
-                    <p>Electron &amp; Supabase desktop app featuring LinkedIn, Google Maps, and website scrapers; email verification via Abstract API; and a Mailgun-based bulk email campaign system with deliverability tracking.</p>
-                    <div class="project-tech">
-                        <span>Electron</span><span>Supabase</span><span>Mailgun</span><span>Abstract API</span>
-                    </div>
-                    <div class="project-status-badge"><i class="fas fa-desktop"></i> Desktop Application</div>
+                    <div class="project-status-badge live"><i class="fas fa-circle"></i> Google Play Closed Testing</div>
                 </div>
 
                 <div class="project-card tilt-card reveal-stagger" style="--card-color: #059669;">
@@ -361,12 +407,40 @@
                     <div class="project-status-badge"><i class="fas fa-graduation-cap"></i> EdTech / Academic</div>
                 </div>
 
+                <div class="project-card tilt-card reveal-stagger" style="--card-color: #7c3aed;">
+                    <div class="card-top-bar"></div>
+                    <div class="project-card-header">
+                        <div class="project-icon-wrap"><i class="fas fa-language"></i></div>
+                        <span></span>
+                    </div>
+                    <h3>Real-Time Translation App</h3>
+                    <p>C# desktop application for multilingual communication, using REST APIs to translate conversations in real time across multiple language pairs.</p>
+                    <div class="project-tech">
+                        <span>C#</span><span>REST APIs</span><span>Desktop</span>
+                    </div>
+                    <div class="project-status-badge"><i class="fas fa-desktop"></i> Desktop Application</div>
+                </div>
+
+                <div class="project-card tilt-card reveal-stagger" style="--card-color: #0891b2;">
+                    <div class="card-top-bar"></div>
+                    <div class="project-card-header">
+                        <div class="project-icon-wrap"><i class="fas fa-globe"></i></div>
+                        <span></span>
+                    </div>
+                    <h3>Portfolio Website</h3>
+                    <p>This site. A responsive personal portfolio designed and built from scratch, with every animation, layout, and accessibility detail tuned by hand.</p>
+                    <div class="project-tech">
+                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Firebase</span>
+                    </div>
+                    <div class="project-status-badge"><i class="fas fa-eye"></i> You're on it right now</div>
+                </div>
+
             </div>
         </section>
 
         <!-- ===== CERTIFICATIONS ===== -->
         <section id="certifications" class="reveal">
-            <div class="section-label"><span class="section-num">05</span>Certifications</div>
+            <div class="section-label"><span class="section-num">06</span>Certifications</div>
             <h2 class="section-title">Credentials</h2>
             <div class="cert-row">
                 <div class="cert-card tilt-card reveal-stagger">
@@ -382,17 +456,37 @@
                     </div>
                 </div>
             </div>
+
+            <div class="prof-dev-row">
+                <h3 class="prof-dev-heading">Professional Development</h3>
+                <div class="prof-dev-list">
+                    <div class="prof-dev-item reveal-stagger">
+                        <i class="fas fa-shield-halved"></i>
+                        <div>
+                            <p class="pd-title">CompTIA Security+ (SY0-701) Complete Course and Practice Exam</p>
+                            <p class="pd-meta">Udemy (Dion Training) &bull; June 2026 &bull; 31 hours &bull; network security, threat management, cryptography, IAM, risk mitigation</p>
+                        </div>
+                    </div>
+                    <div class="prof-dev-item reveal-stagger">
+                        <i class="fas fa-user-secret"></i>
+                        <div>
+                            <p class="pd-title">The Complete Cyber Security Course, Volume 1: Hackers Exposed</p>
+                            <p class="pd-meta">StationX / Udemy &bull; June 2026 &bull; 12 hours &bull; threat modelling, OS security, encryption, phishing &amp; social engineering defence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ===== EDUCATION ===== -->
         <section id="education" class="reveal">
-            <div class="section-label"><span class="section-num">06</span>Education</div>
+            <div class="section-label"><span class="section-num">07</span>Education</div>
             <h2 class="section-title">Academic foundation</h2>
             <div class="edu-grid">
 
                 <div class="edu-card tilt-card reveal-stagger">
                     <div class="edu-year-badge">2019 – 2026</div>
-                    <h3>Bachelor of Computing (NQF Level 8)</h3>
+                    <h3>Bachelor of Computing (NQF Level 8), majoring in Software Engineering</h3>
                     <p class="edu-school">Belgium Campus iTversity</p>
                     <p class="edu-loc"><i class="fas fa-map-marker-alt"></i> Pretoria, South Africa</p>
                     <div class="edu-stats-row">
@@ -409,7 +503,7 @@
                             <span>Credits</span>
                         </div>
                     </div>
-                    <p class="edu-subjects"><strong>Key Coursework:</strong> Machine Learning, Artificial Intelligence, Business Intelligence (CRISP-DM), Database Development, Software Engineering, Web Development, Information Systems, Project Management, Statistics, Abstract &amp; Linear Algebra.</p>
+                    <p class="edu-subjects"><strong>Key Coursework:</strong> Software Engineering, Machine Learning, Artificial Intelligence, Business Intelligence, Database Development, Web Development, Information Systems, Project Management, Statistics.</p>
                 </div>
 
                 <div class="edu-card tilt-card reveal-stagger">
@@ -426,7 +520,7 @@
         <!-- ===== INTERNATIONAL / BEYOND THE CODE ===== -->
         <section id="international" class="reveal">
             <div class="intl-inner">
-                <div class="section-label light"><span class="section-num">07</span>Background</div>
+                <div class="section-label light"><span class="section-num">08</span>Background</div>
                 <h2 class="section-title light">Beyond the code</h2>
                 <div class="intl-grid">
                     <div class="intl-card reveal-stagger">
@@ -447,7 +541,7 @@
                     <div class="intl-card reveal-stagger">
                         <div class="intl-icon"><i class="fas fa-trophy"></i></div>
                         <h3>Athletics</h3>
-                        <p>Competitive rugby, cricket, and baseball. Played varsity baseball in Dubai and Abu Dhabi — the discipline and teamwork transfer directly to engineering.</p>
+                        <p>Competitive rugby, cricket, and baseball. Played varsity baseball in Dubai and Abu Dhabi, where the discipline and teamwork transferred directly to engineering.</p>
                     </div>
                 </div>
             </div>
@@ -461,7 +555,7 @@
     <footer id="contact">
         <div class="footer-inner">
             <h2>Let's build something great</h2>
-            <p>Open to full stack, integration, and automation engineering opportunities.</p>
+            <p>Open to frontend, backend, and full stack development, UI/UX design, and integration &amp; automation engineering opportunities.</p>
             <div class="footer-contacts">
                 <a href="mailto:tj.vanheerden717@gmail.com"><i class="fas fa-envelope"></i> tj.vanheerden717@gmail.com</a>
                 <a href="tel:+27814597608"><i class="fas fa-phone"></i> +27 81 459 7608</a>
